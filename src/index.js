@@ -2,8 +2,15 @@
 // You should implement your task here.
 
 module.exports = function towelSort (matrix) {
-  matrix.reduce((acc, cut, i) =>{
-    cur.sort((a, b) => !(i & 1) ? a - b : b - a).map(e => acc.push(e));
-    return acc
-  }, [])  
+  let Matrix = [];
+  for (i = 0; i < matrix.length; i++){
+    for(j = 0; j < matrix[i].length; j++){
+        if (i % 2 == 0){
+            Matrix.push(matrix[i][j]);
+        } else {
+            Matrix.push(matrix[i][matrix[i].length-j-1]);
+        }
+    }
+  }
+  return Matrix;
 }
